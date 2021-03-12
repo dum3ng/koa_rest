@@ -14,7 +14,7 @@ class ModelRegistry {
     return ModelRegistry._instance
   }
 
-  static register(modelDeclaration: ModelDeclaration):  Model{
+  static register(modelDeclaration: ModelDeclaration): Model {
     const [name, schema] = modelDeclaration
 
     const inst = ModelRegistry._getInstance()
@@ -47,4 +47,4 @@ class ModelRegistry {
   }
 }
 
-export default ModelRegistry
+export { ModelRegistry }
