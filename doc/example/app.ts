@@ -14,6 +14,7 @@ class HelloController {
   // @ts-ignore
   controllers: [HelloController],
   port: 4000,
+  hostname: '0.0.0.0',
 })
 class MyApp extends Application {
   main() {

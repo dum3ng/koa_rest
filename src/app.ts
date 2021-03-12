@@ -17,6 +17,7 @@ function app() {
 export class Application {
   protected app: Koa
   protected port: number = 3000
+  protected hostname: string = '127.0.0.1'
   protected controllers?: any[]
   static _instance: Application
   static get instance() {
@@ -36,8 +37,8 @@ export class Application {
   }
 
   start() {
-    const { port } = this
-    this.app.listen(port, () => {
+    const { port, hostname } = this
+    this.app.listen(port, hostname, () => {
       console.log(`app is running on ${port}`)
     })
   }
@@ -50,6 +51,7 @@ export class Application {
 export interface IConfig {
   controllers: RouteControllerClass[]
   port?: number
+  hostname?: string
 }
 
 type A = typeof Application
@@ -61,6 +63,7 @@ export function Config(config: IConfig) {
         super()
 
         this.port = config.port ?? this.port
+        this.hostname = config.hostname ?? this.hostname
         // use the routes of controllers
         console.log(config)
         if (config.controllers) {
