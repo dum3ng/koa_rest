@@ -15,10 +15,10 @@ function app() {
 }
 
 export class Application {
-  protected app: Koa
-  protected port: number = 3000
-  protected hostname: string = '127.0.0.1'
-  protected controllers?: any[]
+  public app: Koa
+  public port: number = 3000
+  public hostname: string = '127.0.0.1'
+  public controllers?: any[]
   static _instance: Application
   static get instance() {
     if (!this._instance) {

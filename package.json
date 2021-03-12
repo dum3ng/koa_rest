@@ -1,8 +1,13 @@
 {
   "name": "koa_rest",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "0.0.1",
+  "main": "dist/index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "npx tsc",
+    "prepublishOnly": "npx tsc"
+  },
+  "files": ["dist"],
   "dependencies": {
     "@koa/router": "^10.0.0",
     "koa": "^2.13.1",
