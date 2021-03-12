@@ -1,5 +1,5 @@
 {
-  "name": "koa_rest",
+  "name": "@sundial/koa_rest",
   "version": "0.0.1",
   "main": "dist/index.js",
   "license": "MIT",
@@ -7,7 +7,13 @@
     "build": "npx tsc",
     "prepublishOnly": "npx tsc"
   },
-  "files": ["dist"],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@koa/router": "^10.0.0",
     "koa": "^2.13.1",
