@@ -17,7 +17,7 @@ class HelloController {
   hostname: '0.0.0.0',
 })
 class MyApp extends Application {
-  main() {
+  async main() {
     console.log('do extra things')
     this.start()
   }

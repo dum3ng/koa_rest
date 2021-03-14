@@ -17,11 +17,11 @@ export class Application {
     this.app = new Koa()
   }
 
-  main(): void {
+  async main(): Promise<void> {
     // implement me
   }
 
-  start(appCallback?: () => {}) {
+  start(appCallback?: () => void) {
     const { port, hostname } = this
 
     this.app.listen(
