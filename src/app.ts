@@ -1,19 +1,6 @@
 import Koa from 'koa'
 import { RouteControllerClass } from './controller'
 
-/**
- * usage:
- *
- *      @app({
- *           controllers: []})
- *      class Application {
- *      }
- */
-
-function app() {
-  return function () {}
-}
-
 export class Application {
   public app: Koa
   public port: number = 3000
@@ -24,8 +11,6 @@ export class Application {
     if (!this._instance) {
       this._instance = new this()
     }
-    console.log(this)
-    console.log(this._instance)
     return this._instance
   }
   constructor() {
@@ -36,11 +21,18 @@ export class Application {
     // implement me
   }
 
-  start() {
+  start(appCallback?: () => {}) {
     const { port, hostname } = this
-    this.app.listen(port, hostname, () => {
-      console.log(`app is running on ${port}`)
-    })
+
+    this.app.listen(
+      port,
+      hostname,
+      appCallback
+        ? () => appCallback()
+        : () => {
+            console.log(`app is running on ${port}`)
+          },
+    )
   }
 
   static run() {
